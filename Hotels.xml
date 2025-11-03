@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Hotels
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://raw.githubusercontent.com/bwbaderasu/445assignment4/refs/heads/main/Hotels.xsd">
     <Hotel>
         <Name>Canopy by Hilton Tempe Downtown</Name>
