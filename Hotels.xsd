@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xsd:element name="Hotels" type="HotelsType"/>
+
+    <xsd:complexType name="HotelsType">
+        <xsd:sequence>
+            <xsd:element name="Hotel" type="HotelType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="HotelType">
+        <xsd:sequence>
+            <xsd:element name="Name" type="NameType"/>
+            <xsd:element name="Phone" type="PhoneType" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="Rating" type="RatingType" minOccurs="0"/>
+            <xsd:element name="Address" type="AddressType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="NameType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="RatingType">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="5"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="AddressType">
+        <xsd:sequence>
+            <xsd:element name="Number" type="NumberType"/>
+            <xsd:element name="Street" type="StreetType"/>
+            <xsd:element name="City" type="CityType"/>
+            <xsd:element name="State" type="StateType"/>
+            <xsd:element name="Zip" type="ZipType"/>
+            <xsd:element name="NearestAirport" type="NearestAirportType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="NumberType">
+        <xsd:restriction base="xsd:integer"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="StreetType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="CityType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="StateType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ZipType">
+        <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="5"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="NearestAirportType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+
+    <!-- Define the allowed format for the Phone number with a regular exp. -->
+    <xsd:simpleType name="PhoneType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{3}\-\d{3}\-\d{4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+</xsd:schema>
