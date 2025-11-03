@@ -70,9 +70,10 @@
 
     <!-- Define the allowed format for the Phone number with a regular exp. -->
     <xsd:simpleType name="PhoneType">
-        <xsd:restriction base="xsd:string">
+        <xsd:restriction base="xsd:string"/>
     </xsd:simpleType>
 
 
 </xsd:schema>
+
 
